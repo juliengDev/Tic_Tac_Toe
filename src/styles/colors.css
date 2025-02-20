@@ -1,12 +1,13 @@
 @theme {
   /* COLORS */
-  --color-base: #133041;
-  --color-maximum-blue-green: rgb(49, 195, 189);
-  --color-sky-blue: rgb(101, 233, 228);
-  --color-meat-brown: rgb(242, 177, 55);
-  --color-orange-yellow: rgb(255, 200, 96);
-  --color-dark-gunmetal: rgb(26, 42, 51);
-  --color-gunmetal: rgb(31, 54, 65);
+  --color-dark-navy: rgb(26, 42, 51);
+  --color-semi-dark-navy: rgb(31, 54, 65);
+  --color-silver: rgb(168, 191, 201);
+  --color-silver-hover: rgb(219, 232, 237);
+  --color-light-blue: rgb(49, 195, 189);
+  --color-light-blue-hover: rgb(101, 233, 228);
+  --color-light-yellow: rgb(242, 177, 55);
+  --color-light-yellow-hover: rgb(255, 200, 96);
   --color-pastel-blue: rgb(168, 191, 201);
   --color-azureish-white: rgb(219, 232, 237);
   --color-white: #fff;
@@ -28,5 +29,5 @@
 
 body {
   color: var(--color-pastel-blue);
-  background-color: var(--color-dark-gunmetal);
+  background-color: var(--color-dark-navy);
 }

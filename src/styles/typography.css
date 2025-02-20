@@ -9,6 +9,7 @@ body {
   letter-spacing: 0.88px;
   font-style: medium;
 }
+
 @layer components {
   .heading-l {
     font-size: 2.5rem;
