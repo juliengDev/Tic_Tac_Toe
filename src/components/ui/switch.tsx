@@ -1,5 +1,6 @@
 import * as React from "react";
 import * as SwitchPrimitives from "@radix-ui/react-switch";
+import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
 import iconO from "../../assets/icon-o-dark.svg";
 import iconX from "../../assets/icon-x-dark.svg";
@@ -22,7 +23,7 @@ const Switch = React.forwardRef<
   return (
     <SwitchPrimitives.Root
       className={cn(
-        "peer relative inline-flex h-[72px] w-[279px] cursor-pointer items-center rounded-xl border-2 border-transparent bg-[#1F3641] shadow-lg transition-colors focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50",
+        "peer relative mb-4 inline-flex h-[72px] w-[279px] cursor-pointer items-center rounded-xl border-transparent bg-(--color-dark-navy) transition-colors focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50",
         className,
       )}
       {...props}
@@ -43,11 +44,19 @@ const Switch = React.forwardRef<
           alt="icon team X"
         />
       </div>
-      <SwitchPrimitives.Thumb
-        className={cn(
-          "pointer-events-none absolute left-[9px] h-[54px] w-[132px] rounded-lg bg-[#A8BFC9] ring-0 shadow-lg transition-transform duration-200",
-          "data-[state=checked]:translate-x-[129px] data-[state=unchecked]:translate-x-0",
-        )}
+      <motion.div
+        layout
+        className={cn("pointer-events-none absolute left-[9px] h-[54px] w-[132px] rounded-lg bg-[#A8BFC9] ring-0 shadow-lg")}
+        animate={{
+          x: isChecked ? 129 : 0,
+        }}
+        transition={{
+          type: "spring",
+          stiffness: 400,
+          damping: 25,
+          mass: 1,
+          bounce: 0.25,
+        }}
       >
         <div className="flex h-full items-center justify-center">
           <span className="flex items-center justify-center">
@@ -58,7 +67,7 @@ const Switch = React.forwardRef<
             )}
           </span>
         </div>
-      </SwitchPrimitives.Thumb>
+      </motion.div>
     </SwitchPrimitives.Root>
   );
 });

@@ -5,7 +5,6 @@ body,
   height: 100%;
 }
 
-
 *,
 *::before,
 *::after {
@@ -18,7 +17,7 @@ html {
 }
 body {
   min-height: 100dvh;
-  overflow-y: scroll;
+  overflow: scroll;
   -webkit-font-smoothing: antialiased;
 }
 a:link,
@@ -29,8 +28,6 @@ a:active {
   color: inherit;
   cursor: pointer; /* or pointer if you want to keep the default hand cursor */
 }
-
-
 
 /* 6. Inherit fonts for form controls */
 input,
