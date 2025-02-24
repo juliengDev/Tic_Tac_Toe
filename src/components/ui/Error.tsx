@@ -4,7 +4,6 @@ import { ArrowLeft } from "lucide-react";
 
 function Error() {
   const error = useRouteError() as { data?: string; message?: string };
-  console.log(error);
   return (
     <div className="mt-16 flex flex-col items-center gap-6">
       <h1 className="heading-l">Something went wrong</h1>

@@ -1,20 +1,25 @@
-import iconX from "../../assets/icon-x-grey.svg";
+import iconX from "../../assets/icon-x.svg";
 import iconO from "../../assets/icon-o.svg";
 import iconRestart from "../../assets/icon-restart.svg";
 
 interface ButtonProps {
   className?: string;
   children?: React.ReactNode;
-  value?: string;
+  value?: string | null; // Changed to allow null
+  onBtnClick?: () => void;
+  index?: number;
+  iconType?: boolean;
+  disabled?: boolean;
 }
 
-function Button({ className = "", value = "", children }: ButtonProps) {
+function Button({ iconType, className = "", value = "", children, onBtnClick, disabled }: ButtonProps) {
   return (
-    <button className={`btn ${className}`}>
-      {value === "X" ? <img className="w-10" src={iconX} alt="icon X" /> : null}
-      {value === "O" ? <img className="w-10" src={iconO} alt="icon O" /> : null}
-      {value === "icon-x" ? <img className="w-[20px]" src={iconX} alt="icon O" /> : null}
-      {value === "reset" ? <img className="w-[15px]" src={iconRestart} alt="" /> : null}
+    <button onClick={onBtnClick} disabled={disabled} className={`btn ${className}`}>
+      {value === "X" && <img className="w-10" src={iconX} alt="icon X" />}
+      {value === "O" && <img className="w-10" src={iconO} alt="icon O" />}
+      {value === "icon" && iconType && <img className="w-[20px]" src={iconX} alt="icon O" />}
+      {value === "icon" && !iconType && <img className="w-[20px]" src={iconO} alt="icon O" />}
+      {value === "reset" && <img className="w-[15px]" src={iconRestart} alt="" />}
       {children}
     </button>
   );

@@ -6,15 +6,25 @@ import iconO from "../../assets/icon-o-dark.svg";
 import iconX from "../../assets/icon-x-dark.svg";
 import iconOAlt from "../../assets/icon-x-grey.svg";
 import iconXAlt from "../../assets/icon-o-grey.svg";
+import { useGameStore } from "@/store/gameStore";
+import { Team } from "@/types/game";
 
 const Switch = React.forwardRef<
-  React.ElementRef<typeof SwitchPrimitives.Root>,
+  React.ComponentRef<typeof SwitchPrimitives.Root>,
   React.ComponentPropsWithoutRef<typeof SwitchPrimitives.Root>
 >(({ className, ...props }, ref) => {
-  const [isChecked, setIsChecked] = React.useState(false);
+  const { selectedTeam, setSelectedTeam } = useGameStore();
+  const [isChecked, setIsChecked] = React.useState(selectedTeam === "O");
+
+  React.useEffect(() => {
+    setIsChecked(selectedTeam === "O");
+  }, [selectedTeam]);
 
   const handleCheckedChange = (checked: boolean) => {
+    const team: Team = checked ? "O" : "X";
     setIsChecked(checked);
+    setSelectedTeam(team);
+
     if (props.onCheckedChange) {
       props.onCheckedChange(checked);
     }
@@ -28,13 +38,14 @@ const Switch = React.forwardRef<
       )}
       {...props}
       ref={ref}
+      checked={isChecked}
       onCheckedChange={handleCheckedChange}
     >
       <div className="absolute top-1/2 left-[58px] flex -translate-y-1/2 items-center justify-center">
         <img
           src={iconOAlt}
           className={cn("h-8 w-8 transition-all", "data-[state=checked]:text-slate-400 data-[state=unchecked]:text-slate-200")}
-          alt="icon team 0"
+          alt="icon team O"
         />
       </div>
       <div className="absolute top-1/2 right-[58px] flex -translate-y-1/2 items-center justify-center">
@@ -61,7 +72,7 @@ const Switch = React.forwardRef<
         <div className="flex h-full items-center justify-center">
           <span className="flex items-center justify-center">
             {isChecked ? (
-              <img src={iconO} className="h-8 w-8" alt="icon team 0" />
+              <img src={iconO} className="h-8 w-8" alt="icon team O" />
             ) : (
               <img src={iconX} className="h-8 w-8" alt="icon team X" />
             )}
