@@ -1,5 +1,6 @@
 import { Outlet, useNavigation } from "react-router-dom";
 import Loader from "./Loader";
+import Footer from "./Footer";
 
 function Applayout() {
   const navigation = useNavigation();
@@ -8,9 +9,10 @@ function Applayout() {
   return (
     <>
       {isLoading && <Loader />}
-      <main className="mx-auto h-full">
+      <main className="mx-auto">
         <Outlet />
       </main>
+      <Footer />
     </>
   );
 }

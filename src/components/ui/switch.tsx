@@ -33,7 +33,7 @@ const Switch = React.forwardRef<
   return (
     <SwitchPrimitives.Root
       className={cn(
-        "peer relative mb-4 inline-flex h-[72px] w-[279px] cursor-pointer items-center rounded-xl border-transparent bg-(--color-dark-navy) transition-colors focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50",
+        "peer relative mb-4 inline-flex h-[72px] w-[279px] cursor-pointer items-center rounded-xl border-transparent bg-(--color-dark-navy) transition-colors focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 md:w-[412px]",
         className,
       )}
       {...props}
@@ -57,16 +57,19 @@ const Switch = React.forwardRef<
       </div>
       <motion.div
         layout
-        className={cn("pointer-events-none absolute left-[9px] h-[54px] w-[132px] rounded-lg bg-[#A8BFC9] ring-0 shadow-lg")}
+        className={cn(
+          "pointer-events-none absolute left-[9px] h-[54px] rounded-lg bg-[#A8BFC9] ring-0 shadow-lg",
+          "w-[139px] md:w-[206px]",
+        )}
         animate={{
-          x: isChecked ? 129 : 0,
+          x: isChecked ? (window.innerWidth >= 768 ? 188 : 122) : 0,
         }}
         transition={{
           type: "spring",
-          stiffness: 400,
-          damping: 25,
-          mass: 1,
-          bounce: 0.25,
+          stiffness: 300, // Réduit l'exagération du rebond
+          damping: 22, // Freine le mouvement en `md+`
+          mass: 0.8, // Rend l'animation plus légère
+          bounce: 0.15, // Réduit l'amplitude du rebond pour éviter le dépassement
         }}
       >
         <div className="flex h-full items-center justify-center">

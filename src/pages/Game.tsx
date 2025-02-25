@@ -22,16 +22,20 @@ function Header({ xIsNext, handleResetClick, isCpuThinking, gameMode, selectedTe
   const isCpuTurn = gameMode === "cpu" && ((selectedTeam === "X" && !xIsNext) || (selectedTeam === "O" && xIsNext));
 
   return (
-    <header className="mb-16 flex items-center justify-between">
+    <header className="mb-16 flex items-center justify-between md:mb-5">
       <Logo className="mb-0" />
       <Button
         iconType={xIsNext}
         value="icon"
-        className={`btn-base btn-3 flex items-center justify-center gap-2 rounded-[5px] px-3.5 py-2.5 text-(--color-silver) ${isCpuThinking && isCpuTurn ? "animate-pulse" : ""}`}
+        className={`btn-3 flex items-center justify-center gap-2 rounded-[5px] px-3.5 py-2.5 text-(--color-silver) md:mr-[18px] md:min-w-[140px] md:gap-4 md:py-3.5 ${isCpuThinking && isCpuTurn ? "animate-pulse" : ""}`}
       >
         <p>{isCpuThinking && isCpuTurn ? "CPU..." : "TURN"}</p>
       </Button>
-      <Button onBtnClick={handleResetClick} value="reset" className="btn-restart w-10 rounded-[5px] p-3"></Button>
+      <Button
+        onBtnClick={handleResetClick}
+        value="reset"
+        className="btn-restart w-10 rounded-[5px] p-3 md:min-h-[52px] md:min-w-[52px]"
+      ></Button>
     </header>
   );
 }
@@ -45,7 +49,8 @@ function Game() {
 
   const { selectedTeam, scores, updateScore, startingTeam, resetScores, cpuDifficulty, gameMode } = useGameStore();
 
-  const classname = "btn-base btn-4 flex h-[96px] min-w-[96px] items-center justify-center rounded-[10px] px-7 py-6";
+  const classname =
+    "btn-base btn-4 flex md:h-[140px] h-[96px] md:min-w-[140px] min-w-[96px] items-center justify-center rounded-[10px] px-7 py-6";
   const xIsNext = squares.filter(Boolean).length % 2 === 0 ? startingTeam === "X" : startingTeam === "O";
   const winner = calculateWinner(squares);
   const isDraw = !winner && squares.every(Boolean);
@@ -131,18 +136,11 @@ function Game() {
   };
 
   const renderSquare = (i: number): React.ReactElement => {
-    return (
-      <Button
-        className={`${classname} ${isCpuThinking ? "opacity-80" : ""}`}
-        value={squares[i]}
-        onBtnClick={() => handleClick(i)}
-        disabled={isCpuThinking}
-      />
-    );
+    return <Button className={`${classname}`} value={squares[i]} onBtnClick={() => handleClick(i)} disabled={isCpuThinking} />;
   };
 
   return (
-    <div className="m-6 mx-auto max-w-[20.5rem]">
+    <div className="m-6 mx-auto max-w-[20.5rem] md:my-50 md:max-w-[28.75rem]">
       <Header
         xIsNext={xIsNext}
         handleResetClick={handleResetClick}

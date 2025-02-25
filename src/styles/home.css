@@ -4,13 +4,13 @@
   display: inline-block;
 }
 .attribution {
-  margin: 1.6rem 0 6rem;
   text-align: center;
-  color: var(--color-base);
+  color: var(--color-silver);
+  margin-bottom: 34px;
 }
 .attribution__credit {
   font-weight: 800;
-  color: var(--color-blue-500) !important;
+  color: var(--color-light-yellow) !important;
 }
 .attribution__credit a {
   cursor: pointer;

@@ -24,18 +24,18 @@ function Home() {
   const btnText2 = "NEW GAME (VS PLAYER)";
 
   return (
-    <div className="mx-6 my-30 flex h-full flex-col items-center gap-y-4">
+    <div className="mx-6 my-30 flex h-full flex-col items-center gap-y-4 md:my-[96px] md:mt-[277px] md:gap-y-5">
       <Logo className="mb-8" />
       <ChoosePlayer />
       <Button
         onBtnClick={() => handleStartCpuGame("hard")}
-        className="btn-1 max-w-xs rounded-[15px] px-19 py-3.5 text-base font-bold text-(--color-dark-navy)"
+        className="btn-1 max-w-xs rounded-[15px] px-19 py-3.5 text-base font-bold text-(--color-dark-navy) md:min-w-[460px]"
       >
         {btnText1}
       </Button>
       <Button
         onBtnClick={handleStartGame}
-        className="btn-2 max-w-xs rounded-[15px] px-15 py-3.5 text-base font-bold text-(--color-dark-navy)"
+        className="btn-2 max-w-xs rounded-[15px] px-15 py-3.5 text-base font-bold text-(--color-dark-navy) md:min-w-[460px]"
       >
         {btnText2}
       </Button>

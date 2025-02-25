@@ -15,11 +15,11 @@ interface ButtonProps {
 function Button({ iconType, className = "", value = "", children, onBtnClick, disabled }: ButtonProps) {
   return (
     <button onClick={onBtnClick} disabled={disabled} className={`btn ${className}`}>
-      {value === "X" && <img className="w-10" src={iconX} alt="icon X" />}
-      {value === "O" && <img className="w-10" src={iconO} alt="icon O" />}
+      {value === "X" && <img className="w-10 md:w-15.5" src={iconX} alt="icon X" />}
+      {value === "O" && <img className="w-10 md:w-15.5" src={iconO} alt="icon O" />}
       {value === "icon" && iconType && <img className="w-[20px]" src={iconX} alt="icon O" />}
       {value === "icon" && !iconType && <img className="w-[20px]" src={iconO} alt="icon O" />}
-      {value === "reset" && <img className="w-[15px]" src={iconRestart} alt="" />}
+      {value === "reset" && <img className="w-[15px] md:w-[20px]" src={iconRestart} alt="" />}
       {children}
     </button>
   );
