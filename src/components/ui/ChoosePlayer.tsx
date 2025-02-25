@@ -1,5 +1,4 @@
-// import { Switch } from "@/components/ui/Switch";
-import { Switch } from "./Switch";
+import { Switch } from "@/components/ui/Switch";
 
 function ChoosePlayer() {
   return (

@@ -13,15 +13,15 @@ const ResultLayout = ({ scores }: ScoreBoardProps) => {
 
   return (
     <div className="grid grid-cols-3 gap-x-5">
-      <div className="flex flex-col items-center justify-center rounded-[10px] bg-(--color-light-blue) px-5 py-4 text-xl font-bold text-(--color-dark-navy)">
-        <p className="text-[0.875rem] font-medium tracking-[0.88px]">X({playerX})</p>
+      <div className="flex flex-col items-center justify-center rounded-[10px] bg-(--color-light-blue) px-2 py-4 text-xl font-bold text-(--color-dark-navy)">
+        <p className="text-[0.875rem] font-medium tracking-[0.88px]">X ({playerX})</p>
         <p className="text-xl">{scores.X}</p>
       </div>
-      <div className="flex flex-col items-center justify-center rounded-[10px] bg-(--color-silver) px-5 py-4 text-xl font-bold text-(--color-dark-navy)">
+      <div className="flex flex-col items-center justify-center rounded-[10px] bg-(--color-silver) px-2 py-4 text-xl font-bold text-(--color-dark-navy)">
         <p className="text-[0.875rem] font-medium tracking-[0.88px]">Ties</p>
         <p className="text-xl">{scores.ties}</p>
       </div>
-      <div className="flex flex-col items-center justify-center rounded-[10px] bg-(--color-light-yellow) px-5 py-4 text-xl font-bold text-(--color-dark-navy)">
+      <div className="flex flex-col items-center justify-center rounded-[10px] bg-(--color-light-yellow) px-2 py-4 text-xl font-bold text-(--color-dark-navy)">
         <p className="text-[0.875rem] font-medium tracking-[0.88px]">O ({playerO})</p>
         <p className="text-xl">{scores.O}</p>
       </div>
