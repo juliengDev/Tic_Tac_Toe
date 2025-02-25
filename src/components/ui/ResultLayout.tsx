@@ -8,8 +8,8 @@ interface ScoreBoardProps {
 const ResultLayout = ({ scores }: ScoreBoardProps) => {
   const { gameMode, selectedTeam } = useGameStore();
 
-  const playerX = gameMode === "cpu" ? "YOU" : selectedTeam === "X" ? "P1" : "P2";
-  const playerO = gameMode === "cpu" ? "CPU" : selectedTeam === "O" ? "P1" : "P2";
+  const playerX = gameMode === "cpu" ? (selectedTeam === "X" ? "YOU" : "CPU") : selectedTeam === "X" ? "P1" : "P2";
+  const playerO = gameMode === "cpu" ? (selectedTeam === "O" ? "YOU" : "CPU") : selectedTeam === "O" ? "P1" : "P2";
 
   return (
     <div className="grid grid-cols-3 gap-x-5">

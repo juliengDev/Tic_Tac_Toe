@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useGameStore } from "../store/gameStore";
+import { Difficulty } from "@/types/game";
 import Button from "@/components/ui/Button";
 import ChoosePlayer from "@/components/ui/ChoosePlayer";
 import Logo from "@/components/ui/Logo";
@@ -14,7 +15,7 @@ function Home() {
       navigate("/game");
     }
   };
-  const handleStartCpuGame = (difficulty: "easy" | "medium" | "hard") => {
+  const handleStartCpuGame = (difficulty: Difficulty) => {
     setCpuDifficulty(difficulty);
     setGameMode("cpu");
     navigate("/game");
