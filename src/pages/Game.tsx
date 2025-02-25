@@ -75,7 +75,7 @@ function Game() {
   useEffect(() => {
     if (isCpuTurn && !winner && !isDraw && !modalOpen) {
       setIsCpuThinking(true);
-
+      // Add a small delay to make the CPU's move feel more natural
       const timeoutId = setTimeout(() => {
         const cpuMoveIndex = getCpuMove(squares, cpuTeam, cpuDifficulty);
         if (cpuMoveIndex !== -1) {
